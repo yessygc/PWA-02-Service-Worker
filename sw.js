@@ -3,16 +3,16 @@
 
 self.addEventListener('fetch', event => {
 
+
+    const resp = fetch( event.request )
+        .then( resp => {
+            
+            return resp.ok ? resp : fetch('img/main.jpg');
+        
+    });
     
-    if ( event.request.url.includes('main,jps') ) {
-
-        //event.responseWith( fetch('img/main-patas-arriba.jpg') );
+    event.respondWith(resp);
     
-        let resp = fetch('img/main-patas-arriba.jpg');
-
-        event.respondWith( resp );
-
-    }
 
 
 });
