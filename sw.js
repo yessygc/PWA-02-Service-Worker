@@ -3,25 +3,16 @@
 
 self.addEventListener('fetch', event => {
 
-    if ( event.request.url.includes('styles.css') ) {
-        
-        let respuesta = new Response(`
-            body {
-                background-color: red !important;
-                color: pink;
-            }
-        
-        `, {
-            headers : {
-                'Contet-Type': 'text/css'
-            }
-        });
-
-        event.respondWith( respuesta );
-    }
-
-
     
+    if ( event.request.url.includes('main,jps') ) {
+
+        //event.responseWith( fetch('img/main-patas-arriba.jpg') );
+    
+        let resp = fetch('img/main-patas-arriba.jpg');
+
+        event.respondWith( resp );
+
+    }
 
 
 });
